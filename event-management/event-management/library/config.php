@@ -33,7 +33,7 @@ define('WEB_ROOT', $webRoot);
 define('SRV_ROOT', $srvRoot);
 
 
-if (!get_magic_quotes_gpc()) {
+ if(function_exists("get_magic_quotes_gpc") && get_magic_quotes_gpc()) {
 	if (isset($_POST)) {
 		foreach ($_POST as $key => $value) {
 			$_POST[$key] =  trim(addslashes($value));
